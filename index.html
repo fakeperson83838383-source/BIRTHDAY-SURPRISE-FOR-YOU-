@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Happy Birthday Saniya 💖</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ffd6e8,#e6f7ff);
+overflow-x:hidden;
+text-align:center;
+}
+
+/* Floating emojis (never ending) */
+.emoji{
+position:fixed;
+font-size:24px;
+animation:float 14s linear infinite;
+opacity:.8;
+z-index:999;
+pointer-events:none;
+}
+@keyframes float{
+0%{transform:translateY(110vh)}
+100%{transform:translateY(-120vh)}
+}
+
+/* Butterflies smooth path */
+.butterfly{
+position:fixed;
+font-size:32px;
+animation:butterflyFly 8s ease-in-out forwards;
+pointer-events:none;
+z-index:999;
+}
+@keyframes butterflyFly{
+0%{transform:translate(-20vw,90vh) rotate(0deg);opacity:0}
+30%{opacity:1}
+50%{transform:translate(50vw,40vh) rotate(20deg)}
+100%{transform:translate(120vw,-20vh) rotate(-20deg);opacity:0}
+}
+
+/* Container */
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+/* Heart unlock */
+#unlock{margin-top:60px}
+
+.heart{
+font-size:110px;
+animation:pulse 1.5s infinite;
+filter:drop-shadow(0 0 30px rgba(255,105,180,.6));
+}
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.15)}
+100%{transform:scale(1)}
+}
+
+.heart-text{
+font-size:18px;
+color:#ff1493;
+margin:15px 0;
+}
+
+input{
+padding:12px;
+border-radius:25px;
+border:2px solid #ffb6c1;
+width:80%;
+font-size:16px;
+}
+
+button{
+margin-top:15px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,#ff6f91,#ff1493);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* Main content */
+#content{display:none}
+
+/* Cards */
+.card{
+background:white;
+border-radius:25px;
+padding:25px;
+margin-top:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* Hug cats */
+.hug{
+font-size:60px;
+animation:hug 2s infinite;
+}
+@keyframes hug{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.1)}
+}
+
+/* Note */
+#note{
+display:none;
+text-align:left;
+line-height:1.7;
+font-size:16px;
+}
+
+/* Meme images */
+.meme{
+width:100%;
+max-width:300px;
+margin:20px auto;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+animation:fadePop 1.2s ease;
+}
+@keyframes fadePop{
+0%{opacity:0;transform:scale(.8)}
+100%{opacity:1;transform:scale(1)}
+}
+
+/* Cake */
+#cake{
+display:none;
+margin:80px 0;
+animation:pop 1.5s infinite;
+}
+@keyframes pop{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+.birthday-text{
+font-family:'Brush Script MT',cursive;
+font-size:60px;
+color:#ff69b4;
+}
+
+/* Fireworks */
+.firework{
+position:fixed;
+font-size:30px;
+animation:boom 2s ease-out forwards;
+}
+@keyframes boom{
+0%{transform:scale(0);opacity:1}
+100%{transform:scale(2);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<script>
+/* Floating emojis continuous */
+const emojis=["💖","😻","🎀","🐸","💞","🐱"];
+setInterval(()=>{
+let e=document.createElement("div");
+e.className="emoji";
+e.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+e.style.left=Math.random()*100+"vw";
+e.style.animationDuration=(10+Math.random()*8)+"s";
+document.body.appendChild(e);
+setTimeout(()=>e.remove(),16000);
+},700);
+
+/* Butterflies first */
+for(let i=0;i<6;i++){
+let b=document.createElement("div");
+b.className="butterfly";
+b.innerText="🦋";
+b.style.animationDelay=i*0.8+"s";
+document.body.appendChild(b);
+setTimeout(()=>b.remove(),9000);
+}
+</script>
+
+<div class="container">
+
+<!-- UNLOCK -->
+<div id="unlock">
+<div class="heart">🩷</div>
+<p class="heart-text">
+This heart opens only for one name who owns my heart 🥺💞
+</p>
+
+<img src="meme1.png" class="meme" alt="entry meme">
+
+<input id="name" placeholder="Enter your name"/>
+<br>
+<button onclick="unlock()">Open My Heart ❤️</button>
+<p id="error" style="color:red"></p>
+</div>
+
+<!-- CONTENT -->
+<div id="content">
+<h1>🎉 Happy Birthday 🎉</h1>
+<h2>SANIYA 💖</h2>
+<h3>MEDHAK 🐸🎀</h3>
+
+<div class="hug">😻💞😻</div>
+
+<div class="card">
+<button onclick="openNote()">💌 Tap to read ASFAK's note</button>
+</div>
+
+<img id="meme2" src="meme2.png" class="meme" style="display:none">
+
+<div class="card" id="note">
+<p>
+Happy Birthday to the most beautiful soul in my life, Mrs. Saniya 💖😘🎂, my sweet Medhak 🐸🎀🥳!<br><br>
+
+You fill my days with laughter, my heart with love, and my life with endless happiness. May this year bring you countless smiles, peace in your heart, and all the love you truly deserve. Thank you for being my everything—my joy, my comfort, and my greatest blessing.<br><br>
+
+Here's to a magical birthday, my love, as amazing and unforgettable as you are! 💖🎉<br><br>
+
+I still remember the first time I saw you at my brother's wedding — we barely knew each other, yet something about you stayed with me. At my sister's wedding, your haldi dance, our laughter, late-night moments, and even missing you when you went to the market made me realize how special you were to me.<br><br>
+
+From firecrackers 🎆 to Instagram follow requests, from my shyness to your blocks 😭🤌🏻, our story has been imperfect but real.<br><br>
+
+I'm still lost in your beauty, your voice, your dance, and your kind heart that loves animals and Misky 🐱. Even from far away, you mean more to me than you know.<br><br>
+
+Have the most wonderful birthday, my Medhak 🐸💖. You are always in my heart ❤️
+</p>
+</div>
+
+<img id="meme3" src="meme3.png" class="meme" style="display:none">
+
+<div id="cake">
+<div class="birthday-text">Happy Birthday</div>
+<div class="birthday-text">My Love 🎂🕯️</div>
+</div>
+
+</div>
+</div>
+
+<audio id="music" src="birthday.mp3"></audio>
+
+<script>
+function unlock(){
+const v=document.getElementById("name").value.toLowerCase().trim();
+if(v==="saniya"){
+document.querySelector(".heart").innerText="💖💓";
+document.getElementById("unlock").style.display="none";
+document.getElementById("content").style.display="block";
+}else{
+document.getElementById("error").innerText="Wrong name 💔";
+}
+}
+
+function openNote(){
+document.getElementById("note").style.display="block";
+document.getElementById("meme2").style.display="block";
+document.getElementById("music").play();
+}
+
+window.addEventListener("scroll",()=>{
+if(window.innerHeight+window.scrollY>=document.body.offsetHeight-150){
+document.getElementById("cake").style.display="block";
+document.getElementById("meme3").style.display="block";
+for(let i=0;i<8;i++){
+let f=document.createElement("div");
+f.className="firework";
+f.innerText="🎆";
+f.style.left=Math.random()*100+"vw";
+f.style.top=Math.random()*60+"vh";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),2000);
+}
+}
+});
+</script>
+
+</body>
+</html>
